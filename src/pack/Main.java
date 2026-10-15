@@ -2,7 +2,7 @@ package pack;
 
 public class Main {
     static void main(String[] args) {
-        System.out.println(testText("<3<3<3"));
+        System.out.println(testText("fuck you"));
         popLover(3);
     }
     //max was here
