@@ -1,9 +1,12 @@
 package pack;
 
+import java.util.List;
+
 public class Main {
     static void main(String[] args) {
-        KazuyaMishima kazimir = new KazuyaMishima();
+        Opponent Jin = new Opponent(190);
+        KazuyaMishima kazimir = new KazuyaMishima(Jin);
 
-        kazimir.getHit(190);
+        kazimir.dealDamage(Jin, KazuyaAttacks.FLASH_PUNCH);
     }
 }
