@@ -2,10 +2,10 @@ package pack;
 
 public class Main {
     static void main(String[] args) {
-        text();
+        System.out.println(testText("<3<3<3"));
     }
 
-    public static void text() {
-        System.out.println("Hello GitHub again:)");
+    public static String testText(String text) {
+        return "Hello GitHub" + text;
     }
 }
