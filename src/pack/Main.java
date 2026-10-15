@@ -6,6 +6,6 @@ public class Main {
     }
 
     public static void text() {
-        System.out.println("Hello GitHub again");
+        System.out.println("Hello GitHub again:)");
     }
 }
