@@ -1,30 +1,49 @@
 package pack;
 
-public class KazuyaMishima implements Movement {
-    private int HP = 190;
+public class KazuyaMishima extends Character {
 
-    public void hit () {
-        System.out.println("Kazuya Mishima ydaril nah");
+    Opponent opponent;
+
+    public KazuyaMishima(Opponent opponent) {
+        if (opponent == null) {
+            throw new IllegalArgumentException("There must be opponent");
+        }
+
+        this.opponent = opponent;
+    }
+
+    public void dealDamage(Opponent opponent, KazuyaAttacks attack) {
+        opponent.HP -= attack.damage;
+
+        if (attack.luncher) {
+
+            combo();
+        } else if (attack.knockOut) {
+            followUp();
+        }
+
+        isLose();
     }
 
     @Override
-    public void getHit(int hitDamage) {
-        System.out.println("Kazuya Mishima poluchil v eblo");
-        takeDamage(hitDamage);
+    public void combo() {
+        System.out.println("you in combo bro :(");
+        opponent.HP -= 70;
+        showHP();
     }
 
-    private void takeDamage(int damage) {
-        System.out.println("-" + damage);
-        HP-=damage;
-        if (HP <= 0) {
-            dead();
+    @Override
+    void followUp() {
+        opponent.HP -= 34;
+        showHP();
+    }
+
+    void isLose(){
+        if (opponent.HP <= 0) {
+            youLose();
         }
     }
-
-    private void dead() {
-        System.out.println("YOU ARE DEAD");
-    }
-    public void showHP(){
-        System.out.println("HP: " + HP);
+    void showHP() {
+        System.out.println("HP: " + opponent.HP);
     }
 }
